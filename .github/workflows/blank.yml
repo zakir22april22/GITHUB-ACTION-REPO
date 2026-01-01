@@ -8,11 +8,13 @@ jobs:
         run: echo "demo a step buld"
   Test:
     runs-on: ubuntu-latest
+    needs: Build
     steps:
       - name: test-step
         run: echo "running test cases"
   Deploy:
     runs-on: ubuntu-latest
+    needs: Test
     steps:
       - name: deply
         run: echo "deploy a app"
